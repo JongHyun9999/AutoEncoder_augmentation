@@ -1,4 +1,4 @@
 # Anomaly Detections
 U-Net based Anomaly Detections.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ee5f5c08-818c-4eac-8588-b4cafbb81e3d/Untitled.png)
+![image](https://github.com/JongHyun9999/AutoEncoder_augmentation/assets/117347262/0f243117-0d3a-4a8a-af29-4b693b7779f7)
