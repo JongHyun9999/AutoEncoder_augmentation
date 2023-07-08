@@ -2,7 +2,7 @@ from torch.utils.data import DataLoader
 import numpy as np
 import torch
 
-def myProcessData(all_data, input_size, batch_size):
+def myProcessData(all_data, input_size, batch_size, sequence_length):
     # Data preprocessing -----------------------------------------------
     # dividing training dataset, validation dataset, test dataset 
     train_ratio = 0.8
@@ -37,8 +37,11 @@ def myProcessData(all_data, input_size, batch_size):
     test_data = np.array(test_dataset)
     test_data = np.transpose(test_dataset)
     # make 3D. -> pytorch LSTM needs 3D dataset
-    train_data = np.reshape(train_data, (-1, 1, input_size)) # (train_size, 1, input_size)
-    test_data = np.reshape(test_data, (-1, 1, input_size))
+    limited_length = (len(train_data) // sequence_length) * sequence_length
+    print(limited_length)
+    train_data = np.reshape(train_data[:limited_length], (-1, input_size, sequence_length))
+    limited_length = (len(test_data) // sequence_length) * sequence_length
+    test_data = np.reshape(test_data[:limited_length], (-1, input_size, sequence_length))
     # Tensor Type dataset, dataloader
     train_subset_dataset = torch.Tensor(train_data)
     train_dataloader = DataLoader(train_subset_dataset, batch_size=batch_size, shuffle=False, drop_last=True)
