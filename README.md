@@ -1,4 +1,6 @@
 # Anomaly Detections
-U-Net based Anomaly Detections.
+LSTM-AutoEncoder based Anomaly Detections.
 
-![image](https://github.com/JongHyun9999/AutoEncoder_augmentation/assets/117347262/0f243117-0d3a-4a8a-af29-4b693b7779f7)
+동시에 측정한 여러 데이터들을 대상으로 각 fold로 나누어
+flod 별 restruct loss를 구하고, 이에 대한 테스트 진행
+
